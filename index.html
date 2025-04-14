@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Ficha de Magias - Lord of Tree</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #ddd;
+      font-family: "Georgia", serif;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
 
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      color: #e0d8b0;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #1b1b1b;
+      border: 1px solid #333;
+      border-radius: 10px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      background-color: #222;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 6px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .magic-block {
+      margin-top: 15px;
+      border-top: 1px solid #333;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ficha de Magias - Lord of Tree</h1>
+
+  <div class="section">
+    <label>Nome do Personagem</label>
+    <input type="text" placeholder="Ex: Elandor das Cinzas">
+
+    <label>Classe</label>
+    <input type="text" placeholder="Ex: Chamador da Mádra">
+
+    <label>Nível</label>
+    <input type="number" min="1" max="999" value="1">
+  </div>
+
+  <div class="section">
+    <h2>Magias Conhecidas</h2>
+
+    <!-- Aqui você poderá colar os 171 feitiços -->
+    <div class="magic-block">
+      <label>Feitiço 1</label>
+      <textarea placeholder="Nome, descrição, INT/FÉ, efeitos..."></textarea>
+    </div>
+
+    <div class="magic-block">
+      <label>Feitiço 2</label>
+      <textarea placeholder="Nome, descrição, INT/FÉ, efeitos..."></textarea>
+    </div>
+
+    <div class="magic-block">
+      <label>Feitiço 3</label>
+      <textarea placeholder="Nome, descrição, INT/FÉ, efeitos..."></textarea>
+    </div>
+
+    <!-- CONTINUA ABAIXO... você pode me dizer 'continua' que eu envio mais blocos -->
