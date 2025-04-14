@@ -1,46 +1,185 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Index - Lord of Tree</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpellTree - Magias</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: #111;
-      color: white;
-      font-family: Arial, sans-serif;
-      height: 100vh;
+      font-family: 'Georgia', serif;
+      background-color: #0e0e0e;
+      color: #e0e0e0;
+    }
+    .spell {
       display: flex;
-      justify-content: center;
       align-items: center;
-      text-align: center;
+      background: #1a1a1a;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #333;
+      border-radius: 10px;
+    }
+    .spell img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+    .spell button {
+      margin-left: auto;
+      background: #444;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .level-control {
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .level-control button {
+      padding: 5px 10px;
+    }
+    .slot-container {
+      margin: 10px;
+      background: #222;
+      padding: 10px;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  <div>
-    <h1>Bem-vindo ao Lord of Tree</h1>
-    <p>Deslize para a esquerda para acessar os Slots</p>
-  </div>
-
-  <script>
-    let startX = 0;
-
-    document.addEventListener("touchstart", function(e) {
-      startX = e.touches[0].clientX;
-    });
-
-    document.addEventListener("touchend", function(e) {
-      const endX = e.changedTouches[0].clientX;
-      const diffX = startX - endX;
-
-      if (diffX > 80) {
-        // Swipe para a esquerda
-        window.location.assign("slots.html");
+  <div class="level-control">
+    <span>Nível do Jogador:</span>
+    <button onclick="changeLevel(-1)">-</button>
+    <span id="player-level">1</span>
+    <button onclick="changeLevel(1)">+</button>
+  </div>  <div id="spells"></div>  <div class="slot-container">
+    <h3>Slots de Magia</h3>
+    <ul id="slots"></ul>
+  </div>  <script>
+    const spells = [
+      {
+        name: "Glintstone Pebble",
+        image: "glintstone_pebble_elden_ring_wiki_guide_200px.png",
+        description: "Dispara um projétil de magia glintstone.",
+        int: 10,
+        fth: 0,
+        level: 1
+      },
+      {
+        name: "Carian Slicer",
+        image: "carian_slicer_elden_ring_wiki_guide_200px.png",
+        description: "Invoca uma espada mágica para cortar inimigos.",
+        int: 14,
+        fth: 0,
+        level: 5
+      },
+      {
+        name: "Great Glintstone Shard",
+        image: "great_glintstone_shard_elden_ring_wiki_guide_200px.png",
+        description: "Lança uma grande lasca de glintstone.",
+        int: 16,
+        fth: 0,
+        level: 10
+      },
+      {
+        name: "Comet",
+        image: "comet_elden_ring_wiki_guide_200px.png",
+        description: "Lança um poderoso cometa mágico.",
+        int: 24,
+        fth: 0,
+        level: 20
+      },
+      {
+        name: "Loretta's Greatbow",
+        image: "lorettas_greatbow_elden_ring_wiki_guide_200px.png",
+        description: "Cria e dispara um grande arco mágico.",
+        int: 26,
+        fth: 0,
+        level: 25
+      },
+      {
+        name: "Stars of Ruin",
+        image: "stars_of_ruin_elden_ring_wiki_guide_200px.png",
+        description: "Dispara vários projéteis teleguiados.",
+        int: 43,
+        fth: 0,
+        level: 40
+      },
+      {
+        name: "Ranni's Dark Moon",
+        image: "rannis_dark_moon_elden_ring_wiki_guide_200px.png",
+        description: "Invoca uma lua escura que persegue inimigos.",
+        int: 68,
+        fth: 0,
+        level: 60
+      },
+      {
+        name: "Magic Glintblade",
+        image: "magic_glintblade_elden_ring_wiki_guide_200px.png",
+        description: "Lança uma lâmina mágica retardada.",
+        int: 13,
+        fth: 0,
+        level: 4
+      },
+      {
+        name: "Shard Spiral",
+        image: "shard_spiral_elden_ring_wiki_guide_200px.png",
+        description: "Projétil espiral que perfura inimigos.",
+        int: 27,
+        fth: 0,
+        level: 28
+      },
+      {
+        name: "Founding Rain of Stars",
+        image: "founding_rain_of_stars_elden_ring_wiki_guide_200px.png",
+        description: "Chuva cósmica de estrelas que atinge uma área ampla.",
+        int: 52,
+        fth: 0,
+        level: 50
       }
-    });
-  </script>
-</body>
+    ];
+
+    let playerLevel = 1;
+
+    function renderSpells() {
+      const container = document.getElementById("spells");
+      container.innerHTML = "";
+      spells.forEach((spell, index) => {
+        const el = document.createElement("div");
+        el.className = "spell";
+        el.innerHTML = `
+          <img src="${spell.image}" alt="${spell.name}" />
+          <div>
+            <strong>${spell.name}</strong><br />
+            <small>${spell.description}</small><br />
+            <small>INT: ${spell.int}, FÉ: ${spell.fth}, Nível: ${spell.level}</small>
+          </div>
+          <button onclick="addToSlot(${index})">+</button>
+        `;
+        container.appendChild(el);
+      });
+    }
+
+    function addToSlot(index) {
+      const spell = spells[index];
+      if (playerLevel >= spell.level) {
+        const slot = document.getElementById("slots");
+        const item = document.createElement("li");
+        item.textContent = spell.name;
+        slot.appendChild(item);
+      } else {
+        alert("Nível insuficiente para usar esta magia.");
+      }
+    }
+
+    function changeLevel(change) {
+      playerLevel = Math.max(1, playerLevel + change);
+      document.getElementById("player-level").textContent = playerLevel;
+    }
+
+    renderSpells();
+  </script></body>
 </html>
