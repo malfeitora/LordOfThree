@@ -1,128 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Slots de Magia</title>
-  <style>
-    body {
-      background-color: #0f0f0f;
-      color: #e0e0e0;
-      font-family: 'Georgia', serif;
-      margin: 0;
-      padding: 20px;
-    }
-    h1 {
-      color: #d4af37;
-      text-align: center;
-    }
-    .container {
-      max-width: 500px;
-      margin: auto;
-    }
-    .stat {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 10px 0;
-    }
-    .stat span {
-      flex: 1;
-    }
-    .buttons {
-      display: flex;
-      gap: 10px;
-    }
-    button {
-      background-color: #222;
-      color: #fff;
-      border: 1px solid #444;
-      padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-    button:hover {
-      background-color: #333;
-    }
-    #slots {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 1.2rem;
-      color: #a4d4ff;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lord of Tree - Slots</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .content {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+        .slots-container {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="content">
+        <h1>Slots de Magia</h1>
+        <p>Arraste para a direita para voltar ao Index</p>
 
-  <h1>Slots de Magia</h1>
-  <div class="container">
-
-    <div class="stat"><span>Nível: </span>
-      <div class="buttons">
-        <button onclick="changeLevel(-1)">-</button>
-        <span id="level">1</span>
-        <button onclick="changeLevel(1)">+</button>
-      </div>
+        <div class="slots-container">
+            <p>Slots de Magia: 6</p>
+            <!-- Aqui você pode adicionar seus slots ou elementos adicionais -->
+        </div>
     </div>
 
-    <div class="stat"><span>Vigor:</span>
-      <div class="buttons">
-        <button onclick="changeStat('vigor', -1)">-</button>
-        <span id="vigor">1</span>
-        <button onclick="changeStat('vigor', 1)">+</button>
-      </div>
-    </div>
+    <script>
+        let startX = 0;
 
-    <div class="stat"><span>Inteligência:</span>
-      <div class="buttons">
-        <button onclick="changeStat('int', -1)">-</button>
-        <span id="int">1</span>
-        <button onclick="changeStat('int', 1)">+</button>
-      </div>
-    </div>
+        document.addEventListener('touchstart', function (e) {
+            startX = e.touches[0].clientX;
+        });
 
-    <div class="stat"><span>Fé:</span>
-      <div class="buttons">
-        <button onclick="changeStat('faith', -1)">-</button>
-        <span id="faith">1</span>
-        <button onclick="changeStat('faith', 1)">+</button>
-      </div>
-    </div>
+        document.addEventListener('touchend', function (e) {
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
 
-    <div id="slots">Slots de Magia: 6</div>
-
-  </div>
-
-  <script>
-    let stats = {
-      level: 1,
-      vigor: 1,
-      int: 1,
-      faith: 1
-    };
-
-    function updateUI() {
-      document.getElementById('level').textContent = stats.level;
-      document.getElementById('vigor').textContent = stats.vigor;
-      document.getElementById('int').textContent = stats.int;
-      document.getElementById('faith').textContent = stats.faith;
-
-      const slots = 6 + Math.floor(stats.int / 20) + Math.floor(stats.faith / 25);
-      document.getElementById('slots').textContent = `Slots de Magia: ${slots}`;
-    }
-
-    function changeLevel(amount) {
-      stats.level = Math.max(1, Math.min(120, stats.level + amount));
-      updateUI();
-    }
-
-    function changeStat(stat, amount) {
-      stats[stat] = Math.max(1, Math.min(99, stats[stat] + amount));
-      updateUI();
-    }
-
-    updateUI();
-  </script>
-
+            if (diffX > 80) {
+                // arrastou para a esquerda
+                if (window.location.href.includes('index.html')) {
+                    window.location.href = 'slots.html';
+                }
+            } else if (diffX < -80) {
+                // arrastou para a direita
+                if (window.location.href.includes('slots.html')) {
+                    window.location.href = 'index.html';
+                }
+            }
+        });
+    </script>
 </body>
 </html>
