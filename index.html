@@ -1,60 +1,196 @@
-<div class="spell-icons">
-  <div class="spell-icon"><img src="img/spells/ambush_shard_sorcery_elden_ring_wiki_guide_200px.png" alt="Ambush Shard"></div>
-  <div class="spell-icon"><img src="img/spells/ancient_dragons_lightning_spear_incantation_elden_ring_wiki_guide_200px.png" alt="Ancient Dragon's Lightning Spear"></div>
-  <div class="spell-icon"><img src="img/spells/ancient_dragons_lightning_strike_incantation_elden_ring_wiki_guide_200px.png" alt="Ancient Dragon's Lightning Strike"></div>
-  <div class="spell-icon"><img src="img/spells/aspects_of_the_crucible_tail_incantation_elden_ring_wiki_guide_200px.png" alt="Aspects of the Crucible: Tail"></div>
-  <div class="spell-icon"><img src="img/spells/beast_claw_incantation_elden_ring_wiki_guide_200px.png" alt="Beast Claw"></div>
-  <div class="spell-icon"><img src="img/spells/beastial_sling_incantation_elden_ring_wiki_guide_200px.png" alt="Bestial Sling"></div>
-  <div class="spell-icon"><img src="img/spells/beastial_vitality_incantation_elden_ring_wiki_guide_200px.png" alt="Bestial Vitality"></div>
-  <div class="spell-icon"><img src="img/spells/bestial_sling_elden_ring_wiki_guide_200px.png" alt="Bestial Sling (duplicate image name?)"></div>
-  <div class="spell-icon"><img src="img/spells/bestial_vitality_elden_ring_wiki_guide_200px.png" alt="Bestial Vitality (duplicate image name?)"></div>
-  <div class="spell-icon"><img src="img/spells/bloodboon_ritual_incantation_elden_ring_wiki_guide_200px.png" alt="Bloodboon Ritual"></div>
-  <div class="spell-icon"><img src="img/spells/bloodboon_incantation_elden_ring_wiki_guide_200px.png" alt="Bloodboon"></div>
-  <div class="spell-icon"><img src="img/spells/bloodflame_blade_incantation_elden_ring_wiki_guide_200px.png" alt="Bloodflame Blade"></div>
-  <div class="spell-icon"><img src="img/spells/bloodflame_talons_incantation_elden_ring_wiki_guide_200px.png" alt="Bloodflame Talons"></div>
-  <div class="spell-icon"><img src="img/spells/briars_of_punishment_sorcery_elden_ring_wiki_guide_200px.png" alt="Briars of Punishment"></div>
-  <div class="spell-icon"><img src="img/spells/briars_of_sin_sorcery_elden_ring_wiki_guide_200px.png" alt="Briars of Sin"></div>
-  <div class="spell-icon"><img src="img/spells/bubble_shower_sorcery_elden_ring_wiki_guide_200px.png" alt="Bubble Shower"></div>
-  <div class="spell-icon"><img src="img/spells/burning_sun_incantation_elden_ring_wiki_guide_200px.png" alt="Burning Sun"></div>
-  <div class="spell-icon"><img src="img/spells/cannon_of_haima_sorcery_elden_ring_wiki_guide_200px.png" alt="Cannon of Haima"></div>
-  <div class="spell-icon"><img src="img/spells/catch_flame_incantation_elden_ring_wiki_guide_200px.png" alt="Catch Flame"></div>
-  <div class="spell-icon"><img src="img/spells/collapsing_stars_sorcery_elden_ring_wiki_guide_200px.png" alt="Collapsing Stars"></div>
-  <div class="spell-icon"><img src="img/spells/comet_azur_sorcery_elden_ring_wiki_guide_200px.png" alt="Comet Azur"></div>
-  <div class="spell-icon"><img src="img/spells/comet_sorcery_elden_ring_wiki_guide_200px.png" alt="Comet"></div>
-  <div class="spell-icon"><img src="img/spells/crystal_barrage_sorcery_elden_ring_wiki_guide_200px.png" alt="Crystal Barrage"></div>
-  <div class="spell-icon"><img src="img/spells/crystal_release_sorcery_elden_ring_wiki_guide_200px.png" alt="Crystal Release"></div>
-  <div class="spell-icon"><img src="img/spells/death_lightning_incantation_elden_ring_wiki_guide_200px.png" alt="Death Lightning"></div>
-  <div class="spell-icon"><img src="img/spells/dohhn_pebble_elden_ring_wiki_guide_200px.png" alt="Dohhn Pebble"></div>
-  <div class="spell-icon"><img src="img/spells/dragon_claw_incantation_elden_ring_wiki_guide_200px.png" alt="Dragon Claw"></div>
-  <div class="spell-icon"><img src="img/spells/dragon_fire_incantation_elden_ring_wiki_guide_200px.png" alt="Dragon Fire"></div>
-  <div class="spell-icon"><img src="img/spells/dragon_ice_incantation_elden_ring_wiki_guide_200px.png" alt="Dragon Ice"></div>
-  <div class="spell-icon"><img src="img/spells/dragon_lightning_spear_incantation_elden_ring_wiki_guide_200px.png" alt="Dragon Lightning Spear"></div>
-  <div class="spell-icon"><img src="img/spells/dragonbolt_blessing_incantation_elden_ring_wiki_guide_200px.png" alt="Dragonbolt Blessing"></div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>SpellTree</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #dcdcdc;
+      font-family: "Georgia", serif;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      color: #e0c97f;
+      margin-bottom: 30px;
+    }
+    .spell {
+      background-color: #2a2a2a;
+      border: 1px solid #3e3e3e;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .spell img {
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+      border-radius: 8px;
+    }
+    .info {
+      flex-grow: 1;
+    }
+    .spell h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #e0c97f;
+    }
+    .requirements {
+      font-size: 14px;
+      color: #aaa;
+    }
+    .description {
+      font-size: 16px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>SpellTree</h1>
 
-  <!-- Você pode continuar colando os demais ícones nesta estrutura -->
+  <div class="spell">
+    <img src="Adula's_Moonblade_elden_ring_wiki_guide_200px.png" alt="Adula's Moonblade">
+    <div class="info">
+      <h2>1. Adula's Moonblade</h2>
+      <div class="requirements">INT 32 / FÉ 0</div>
+      <div class="description">Conjura uma enorme lâmina de gelo que corta os inimigos e libera uma onda congelante à frente.</div>
+    </div>
+  </div>
 
-</div>
+  <div class="spell">
+    <img src="Ambush_Shard_elden_ring_wiki_guide_200px.png" alt="Ambush Shard">
+    <div class="info">
+      <h2>2. Ambush Shard</h2>
+      <div class="requirements">INT 23 / FÉ 0</div>
+      <div class="description">Lança um projétil mágico que ataca pelas costas do inimigo, ignorando obstáculos frontais.</div>
+    </div>
+  </div>
 
-<style>
-  .spell-icons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+  <div class="spell">
+    <img src="Ancient_Death_Rancor_elden_ring_wiki_guide_200px.png" alt="Ancient Death Rancor">
+    <div class="info">
+      <h2>3. Ancient Death Rancor</h2>
+      <div class="requirements">INT 34 / FÉ 0</div>
+      <div class="description">Convoca almas vingativas que perseguem os inimigos lentamente, causando dano espiritual.</div>
+    </div>
+  </div>
 
-  .spell-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid #555;
-    box-shadow: 0 0 5px #000a;
-  }
+  <div class="spell">
+    <img src="Argent_Glintstone_Shard_elden_ring_wiki_guide_200px.png" alt="Argent Glintstone Shard">
+    <div class="info">
+      <h2>4. Argent Glintstone Shard</h2>
+      <div class="requirements">INT 16 / FÉ 0</div>
+      <div class="description">Dispara uma lasca mágica prateada de alta velocidade com baixo custo de energia.</div>
+    </div>
+  </div>
 
-  .spell-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-</style>
+  <div class="spell">
+    <img src="Briars_of_Sin_elden_ring_wiki_guide_200px.png" alt="Briars of Sin">
+    <div class="info">
+      <h2>5. Briars of Sin</h2>
+      <div class="requirements">INT 0 / FÉ 24</div>
+      <div class="description">Invoca espinhos sangrentos ao redor do conjurador que causam dano em área.</div>
+    </div>
+  </div>
+
+  <div class="spell">
+    <img src="Briars_of_Punishment_elden_ring_wiki_guide_200px.png" alt="Briars of Punishment">
+    <div class="info">
+      <h2>6. Briars of Punishment</h2>
+      <div class="requirements">INT 0 / FÉ 21</div>
+      <div class="description">Lança espinhos sangrentos em linha reta que perfuram os inimigos.</div>
+    </div>
+  </div>
+
+  <div class="spell">
+    <img src="Cannon_of_Haima_elden_ring_wiki_guide_200px.png" alt="Cannon of Haima">
+    <div class="info">
+      <h2>7. Cannon of Haima</h2>
+      <div class="requirements">INT 25 / FÉ 0</div>
+      <div class="description">Dispara um enorme projétil mágico que explode ao impacto, causando dano em área.</div>
+    </div>
+  </div>
+
+  <div class="spell">
+    <img src="Carian_Greatsword_elden_ring_wiki_guide_200px.png" alt="Carian Greatsword">
+    <div class="info">
+      <h2>8. Carian Greatsword</h2>
+      <div class="requirements">INT 24 / FÉ 0</div>
+      <div class="description">Materializa uma espada mágica azulada que desfere um poderoso golpe frontal.</div>
+    </div>
+  </div>
+
+  <div class="spell">
+    <img src="Carian_Piercer_elden_ring_wiki_guide_200px.png" alt="Carian Piercer">
+    <div class="info">
+      <h2>9. Carian Piercer</h2>
+      <div class="requirements">INT 27 / FÉ 0</div>
+      <div class="description">Invoca uma lança mágica que perfura os inimigos com precisão e velocidade.</div>
+    </div>
+  </div>
+
+  <div class="spell">
+    <img src="Carian_Phalanx_elden_ring_wiki_guide_200px.png" alt="Carian Phalanx">
+    <div class="info">
+      <h2>10. Carian Phalanx</h2>
+      <div class="requirements">INT 34 / FÉ 0</div>
+      <div class="description">Cria uma formação de espadas mágicas que perseguem automaticamente os inimigos.</div>
+    </div>
+  </div>
+
+  <div class="spell">
+    <img src="Carian_Reticent_Spike_elden_ring_wiki_guide_200px.png" alt="Carian Reticent Spike">
+    <div class="info">
+      <h2>11. Carian Reticent Spike</h2>
+      <div class="requirements">INT 17 / FÉ 0</div>
+      <div class="description">Lança uma adaga mágica furtiva que causa dano crítico quando atinge o inimigo desprevenido.</div>
+    </div>
+  </div>
+
+  <div class="spell">
+    <img src="Carian_Slicer_elden_ring_wiki_guide_200px.png" alt="Carian Slicer">
+    <div class="info">
+      <h2>12. Carian Slicer</h2>
+      <div class="requirements">INT 14 / FÉ 0</div>
+      <div class="description">Conjura uma lâmina mágica de curta distância extremamente rápida e eficiente.</div>
+    </div>
+  </div>
+
+  <div class="spell">
+    <img src="Comet_Azûr_elden_ring_wiki_guide_200px.png" alt="Comet Azur">
+    <div class="info">
+      <h2>13. Comet Azur</h2>
+      <div class="requirements">INT 60 / FÉ 0</div>
+      <div class="description">Dispara um enorme cometa de pura energia mágica em linha reta, devastando tudo no caminho.</div>
+    </div>
+  </div>
+
+  <div class="spell">
+    <img src="Comet_elden_ring_wiki_guide_200px.png" alt="Comet">
+    <div class="info">
+      <h2>14. Comet</h2>
+      <div class="requirements">INT 52 / FÉ 0</div>
+      <div class="description">Lança um cometa mágico concentrado com grande força e velocidade.</div>
+    </div>
+  </div>
+
+  <div class="spell">
+    <img src="Crystal_Barrage_elden_ring_wiki_guide_200px.png" alt="Crystal Barrage">
+    <div class="info">
+      <h2>15. Crystal Barrage</h2>
+      <div class="requirements">INT 23 / FÉ 0</div>
+      <div class="description">Dispara uma chuva de cristais mágicos que pressionam os inimigos com ataques contínuos.</div>
+    </div>
+  </div>
+
+  <!-- Imagem representando os 15 feitiços -->
+  <div style="text-align:center; margin-top:40px;">
+    <img src="A_2D_digital_display_screenshot_showcases_fifteen_.png" alt="Feitiços 1 a 15" style="width:90%; border-radius:12px; border: 2px solid #555;">
+  </div>
+
+</body>
+</html>
