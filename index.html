@@ -1,162 +1,53 @@
-<div class="spell-block">
-  <h3>1. Ambush Shard</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/ambush_shard_sorcery_elden_ring_wiki_guide_200px.png" alt="Ambush Shard">
-  <p><strong>INT:</strong> 23 | <strong>FÉ:</strong> 0</p>
-  <p>Lança um fragmento mágico pelas costas do inimigo. Ideal para emboscadas.</p>
-</div>
-</body><script src="script.js"></script>
-<div class="spell-block">
-  <h3>2. Ancient Dragon's Lightning Spear</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/ancient_dragons_lightning_spear_incantation_elden_ring_wiki_guide_200px.png" alt="Ancient Dragon's Lightning Spear">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 32</p>
-  <p>Invoca um relâmpago ancestral em forma de lança. Alto dano em área.</p>
-</div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Feitiços</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #ccc;
+      font-family: serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <h1>Página de Feitiços</h1>
 
-<div class="spell-block">
-  <h3>3. Ancient Dragon's Lightning Strike</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/ancient_dragons_lightning_strike_incantation_elden_ring_wiki_guide_200px.png" alt="Ancient Dragon's Lightning Strike">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 26</p>
-  <p>Chama vários relâmpagos consecutivos. Ideal contra grupos.</p>
-</div>
+  <script>
+    let startX = 0;
+    let threshold = 100;
 
-<div class="spell-block">
-  <h3>4. Aspects of the Crucible: Tail</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/aspects_of_the_crucible_tail_incantation_elden_ring_wiki_guide_200px.png" alt="Crucible Tail">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 27</p>
-  <p>Invoca uma cauda sagrada que chicoteia inimigos próximos.</p>
-</div>
+    document.addEventListener("touchstart", function(e) {
+      startX = e.touches[0].clientX;
+    });
 
-<div class="spell-block">
-  <h3>5. Beast Claw</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/beast_claw_incantation_elden_ring_wiki_guide_200px.png" alt="Beast Claw">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 8</p>
-  <p>Rasga o chão com garras bestiais. Curta distância, mas grande poder.</p>
-</div>
+    document.addEventListener("touchend", function(e) {
+      let endX = e.changedTouches[0].clientX;
+      if (startX - endX > threshold) {
+        window.location.href = "slots.html";
+      }
+    });
+  </script>
+</body>
+  <script>
+  let startX = 0;
+  let threshold = 100;
 
-<div class="spell-block">
-  <h3>6. Beast Claw (Gurranq)</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/beast_claw_gurranq_incantation_elden_ring_wiki_guide_200px.png" alt="Beast Claw Gurranq">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 8</p>
-  <p>Versão selvagem de Gurranq da garra bestial.</p>
-</div>
+  document.addEventListener("touchstart", function(e) {
+    startX = e.touches[0].clientX;
+  });
 
-<div class="spell-block">
-  <h3>7. Bestial Constitution</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/bestial_constitution_incantation_elden_ring_wiki_guide_200px.png" alt="Bestial Constitution">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 9</p>
-  <p>Cura efeitos de sangramento e podridão.</p>
-</div>
-
-<div class="spell-block">
-  <h3>8. Bestial Sling</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/bestial_sling_incantation_elden_ring_wiki_guide_200px.png" alt="Bestial Sling">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 10</p>
-  <p>Dispara pedras em arco. Muito rápido e eficaz.</p>
-</div>
-
-<div class="spell-block">
-  <h3>9. Black Blade</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/black_blade_incantation_elden_ring_wiki_guide_200px.png" alt="Black Blade">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 46</p>
-  <p>Ataca com a espada de Maliketh, drenando vida.</p>
-</div>
-
-<div class="spell-block">
-  <h3>10. Black Flame</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/black_flame_incantation_elden_ring_wiki_guide_200px.png" alt="Black Flame">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 20</p>
-  <p>Arremessa uma chama negra que queima lentamente.</p>
-</div>
-
-<div class="spell-block">
-  <h3>11. Black Flame Blade</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/black_flame_blade_incantation_elden_ring_wiki_guide_200px.png" alt="Black Flame Blade">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 17</p>
-  <p>Encanta sua arma com chama negra por um curto período.</p>
-</div>
-
-<div class="spell-block">
-  <h3>12. Black Flame Ritual</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/black_flame_ritual_incantation_elden_ring_wiki_guide_200px.png" alt="Black Flame Ritual">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 42</p>
-  <p>Cria chamas negras giratórias ao seu redor.</p>
-</div>
-
-<div class="spell-block">
-  <h3>13. Bloodboon</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/bloodboon_incantation_elden_ring_wiki_guide_200px.png" alt="Bloodboon">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 14</p>
-  <p>Explode sangue flamejante à sua frente.</p>
-</div>
-
-<div class="spell-block">
-  <h3>14. Bloodflame Blade</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/bloodflame_blade_incantation_elden_ring_wiki_guide_200px.png" alt="Bloodflame Blade">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 12</p>
-  <p>Encanta arma com chamas sangrentas.</p>
-</div>
-
-<div class="spell-block">
-  <h3>15. Bloodflame Talons</h3>
-  <img src="https://eldenring.wiki.fextralife.com/file/Elden-Ring/bloodflame_talons_incantation_elden_ring_wiki_guide_200px.png" alt="Bloodflame Talons">
-  <p><strong>INT:</strong> 0 | <strong>FÉ:</strong> 13</p>
-  <p>Corta com garras de sangue flamejante.</p>
-    </div>
-<div class="character-builder">
-  <h2>Nível do Personagem: <span id="level">1</span></h2>
-  <input type="range" id="levelSlider" min="1" max="120" value="1" oninput="updateLevel(this.value)">
-
-  <div class="attributes">
-    <div class="attribute">
-      <label>Vigor</label>
-      <button onclick="changeAttr('vigor', -1)">−</button>
-      <span id="vigor">1</span>
-      <button onclick="changeAttr('vigor', 1)">+</button>
-    </div>
-    <div class="attribute">
-      <label>Mente</label>
-      <button onclick="changeAttr('mind', -1)">−</button>
-      <span id="mind">1</span>
-      <button onclick="changeAttr('mind', 1)">+</button>
-    </div>
-    <div class="attribute">
-      <label>Resistência</label>
-      <button onclick="changeAttr('endurance', -1)">−</button>
-      <span id="endurance">1</span>
-      <button onclick="changeAttr('endurance', 1)">+</button>
-    </div>
-    <div class="attribute">
-      <label>Força</label>
-      <button onclick="changeAttr('strength', -1)">−</button>
-      <span id="strength">1</span>
-      <button onclick="changeAttr('strength', 1)">+</button>
-    </div>
-    <div class="attribute">
-      <label>Destreza</label>
-      <button onclick="changeAttr('dexterity', -1)">−</button>
-      <span id="dexterity">1</span>
-      <button onclick="changeAttr('dexterity', 1)">+</button>
-    </div>
-    <div class="attribute">
-      <label>Inteligência</label>
-      <button onclick="changeAttr('intelligence', -1)">−</button>
-      <span id="intelligence">1</span>
-      <button onclick="changeAttr('intelligence', 1)">+</button>
-    </div>
-    <div class="attribute">
-      <label>Fé</label>
-      <button onclick="changeAttr('faith', -1)">−</button>
-      <span id="faith">1</span>
-      <button onclick="changeAttr('faith', 1)">+</button>
-    </div>
-    <div class="attribute">
-      <label>Arcano</label>
-      <button onclick="changeAttr('arcane', -1)">−</button>
-      <span id="arcane">1</span>
-      <button onclick="changeAttr('arcane', 1)">+</button>
-    </div>
-  </div>
-
-  <h3>Slots de Magia: <span id="slots">6</span></h3>
-  <p>Use os atributos para desbloquear mais slots.</p>
-</div>
+  document.addEventListener("touchend", function(e) {
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > threshold) {
+      // Arrastou para a esquerda → vai para os slots
+      window.location.href = "slots.html";
+    }
+  });
+  </script>
+</html>
