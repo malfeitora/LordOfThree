@@ -1,88 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SpellTree</title>
-  <style>
-    body {
-      background-color: #0f0f0f;
-      color: #e0e0e0;
-      font-family: 'Georgia', serif;
-      margin: 0;
-      padding: 20px;
-    }
-    .spell {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #444;
-      padding-bottom: 10px;
-    }
-    .spell img {
-      width: 64px;
-      height: 64px;
-      margin-right: 15px;
-      border-radius: 8px;
-      border: 1px solid #555;
-    }
-    .spell-info {
-      flex: 1;
-    }
-    .spell-info h2 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #d4af37;
-    }
-    .spell-info p {
-      margin: 5px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lord of Tree - Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .content {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+    </style>
 </head>
 <body>
-
-  <h1>SpellTree - Feitiços</h1>
-
-  <div class="spell">
-    <img src="Adula's_Moonblade_elden_ring_wiki_guide_200px.png" alt="Adula's Moonblade">
-    <div class="spell-info">
-      <h2>1. Adula's Moonblade</h2>
-      <p><strong>INT:</strong> 32 <strong>FÉ:</strong> 0</p>
-      <p>Evoca uma espada de gelo que ataca com uma onda congelante.</p>
+    <div class="content">
+        <h1>Bem-vindo ao Lord of Tree</h1>
+        <p>Arraste para a esquerda para acessar os Slots de Magia</p>
     </div>
-  </div>
 
-  <div class="spell">
-    <img src="Ambush_Shard_elden_ring_wiki_guide_200px.png" alt="Ambush Shard">
-    <div class="spell-info">
-      <h2>2. Ambush Shard</h2>
-      <p><strong>INT:</strong> 23 <strong>FÉ:</strong> 0</p>
-      <p>Dispara um fragmento mágico pelas costas do inimigo.</p>
-    </div>
-  </div>
+    <script>
+        let startX = 0;
 
-  <!-- Adicione mais feitiços seguindo o mesmo padrão -->
+        document.addEventListener('touchstart', function (e) {
+            startX = e.touches[0].clientX;
+        });
 
-  <script>
-    let touchStartX = 0;
-    let touchEndX = 0;
+        document.addEventListener('touchend', function (e) {
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
 
-    document.addEventListener('touchstart', function(e) {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-
-    document.addEventListener('touchend', function(e) {
-      touchEndX = e.changedTouches[0].screenX;
-      handleGesture();
-    });
-
-    function handleGesture() {
-      if (touchEndX < touchStartX - 50) {
-        // Arrastou para a esquerda
-        window.location.href = 'slots.html';
-      }
-    }
-  </script>
-
+            if (diffX > 80) {
+                // arrastou para a esquerda
+                if (window.location.href.includes('index.html')) {
+                    window.location.href = 'slots.html';
+                }
+            } else if (diffX < -80) {
+                // arrastou para a direita
+                if (window.location.href.includes('slots.html')) {
+                    window.location.href = 'index.html';
+                }
+            }
+        });
+    </script>
 </body>
 </html>
