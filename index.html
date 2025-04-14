@@ -1,185 +1,106 @@
-<!DOCTYPE html><html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SpellTree - Magias</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #0e0e0e;
-      color: #e0e0e0;
-    }
-    .spell {
-      display: flex;
-      align-items: center;
-      background: #1a1a1a;
-      margin: 10px;
-      padding: 10px;
-      border: 1px solid #333;
-      border-radius: 10px;
-    }
-    .spell img {
-      width: 50px;
-      height: 50px;
-      margin-right: 10px;
-    }
-    .spell button {
-      margin-left: auto;
-      background: #444;
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-    .level-control {
-      margin: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .level-control button {
-      padding: 5px 10px;
-    }
-    .slot-container {
-      margin: 10px;
-      background: #222;
-      padding: 10px;
-      border-radius: 10px;
-    }
-  </style>
-</head>
-<body>
-  <div class="level-control">
-    <span>Nível do Jogador:</span>
-    <button onclick="changeLevel(-1)">-</button>
-    <span id="player-level">1</span>
-    <button onclick="changeLevel(1)">+</button>
-  </div>  <div id="spells"></div>  <div class="slot-container">
-    <h3>Slots de Magia</h3>
-    <ul id="slots"></ul>
-  </div>  <script>
-    const spells = [
-      {
-        name: "Glintstone Pebble",
-        image: "glintstone_pebble_elden_ring_wiki_guide_200px.png",
-        description: "Dispara um projétil de magia glintstone.",
-        int: 10,
-        fth: 0,
-        level: 1
-      },
-      {
-        name: "Carian Slicer",
-        image: "carian_slicer_elden_ring_wiki_guide_200px.png",
-        description: "Invoca uma espada mágica para cortar inimigos.",
-        int: 14,
-        fth: 0,
-        level: 5
-      },
-      {
-        name: "Great Glintstone Shard",
-        image: "great_glintstone_shard_elden_ring_wiki_guide_200px.png",
-        description: "Lança uma grande lasca de glintstone.",
-        int: 16,
-        fth: 0,
-        level: 10
-      },
-      {
-        name: "Comet",
-        image: "comet_elden_ring_wiki_guide_200px.png",
-        description: "Lança um poderoso cometa mágico.",
-        int: 24,
-        fth: 0,
-        level: 20
-      },
-      {
-        name: "Loretta's Greatbow",
-        image: "lorettas_greatbow_elden_ring_wiki_guide_200px.png",
-        description: "Cria e dispara um grande arco mágico.",
-        int: 26,
-        fth: 0,
-        level: 25
-      },
-      {
-        name: "Stars of Ruin",
-        image: "stars_of_ruin_elden_ring_wiki_guide_200px.png",
-        description: "Dispara vários projéteis teleguiados.",
-        int: 43,
-        fth: 0,
-        level: 40
-      },
-      {
-        name: "Ranni's Dark Moon",
-        image: "rannis_dark_moon_elden_ring_wiki_guide_200px.png",
-        description: "Invoca uma lua escura que persegue inimigos.",
-        int: 68,
-        fth: 0,
-        level: 60
-      },
-      {
-        name: "Magic Glintblade",
-        image: "magic_glintblade_elden_ring_wiki_guide_200px.png",
-        description: "Lança uma lâmina mágica retardada.",
-        int: 13,
-        fth: 0,
-        level: 4
-      },
-      {
-        name: "Shard Spiral",
-        image: "shard_spiral_elden_ring_wiki_guide_200px.png",
-        description: "Projétil espiral que perfura inimigos.",
-        int: 27,
-        fth: 0,
-        level: 28
-      },
-      {
-        name: "Founding Rain of Stars",
-        image: "founding_rain_of_stars_elden_ring_wiki_guide_200px.png",
-        description: "Chuva cósmica de estrelas que atinge uma área ampla.",
-        int: 52,
-        fth: 0,
-        level: 50
-      }
-    ];
+<div class="spells-list">
+  <div class="spell" data-int="10" data-faith="0" data-level="1">
+    <h3>1. Glintstone Pebble</h3>
+    <p>Dispara um pequeno fragmento mágico de glintstone.</p>
+    <p><strong>INT:</strong> 10 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 1</p>
+    <button class="add-spell">+</button>
+  </div>
 
-    let playerLevel = 1;
+  <div class="spell" data-int="13" data-faith="0" data-level="3">
+    <h3>2. Glintstone Arc</h3>
+    <p>Libera uma onda mágica em arco que atinge múltiplos inimigos.</p>
+    <p><strong>INT:</strong> 13 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 3</p>
+    <button class="add-spell">+</button>
+  </div>
 
-    function renderSpells() {
-      const container = document.getElementById("spells");
-      container.innerHTML = "";
-      spells.forEach((spell, index) => {
-        const el = document.createElement("div");
-        el.className = "spell";
-        el.innerHTML = `
-          <img src="${spell.image}" alt="${spell.name}" />
-          <div>
-            <strong>${spell.name}</strong><br />
-            <small>${spell.description}</small><br />
-            <small>INT: ${spell.int}, FÉ: ${spell.fth}, Nível: ${spell.level}</small>
-          </div>
-          <button onclick="addToSlot(${index})">+</button>
-        `;
-        container.appendChild(el);
-      });
-    }
+  <div class="spell" data-int="16" data-faith="0" data-level="5">
+    <h3>3. Great Glintstone Shard</h3>
+    <p>Lança um grande fragmento de glintstone com dano elevado.</p>
+    <p><strong>INT:</strong> 16 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 5</p>
+    <button class="add-spell">+</button>
+  </div>
 
-    function addToSlot(index) {
-      const spell = spells[index];
-      if (playerLevel >= spell.level) {
-        const slot = document.getElementById("slots");
-        const item = document.createElement("li");
-        item.textContent = spell.name;
-        slot.appendChild(item);
-      } else {
-        alert("Nível insuficiente para usar esta magia.");
-      }
-    }
+  <div class="spell" data-int="24" data-faith="0" data-level="12">
+    <h3>4. Comet</h3>
+    <p>Dispara um poderoso projétil mágico em linha reta.</p>
+    <p><strong>INT:</strong> 24 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 12</p>
+    <button class="add-spell">+</button>
+  </div>
 
-    function changeLevel(change) {
-      playerLevel = Math.max(1, playerLevel + change);
-      document.getElementById("player-level").textContent = playerLevel;
-    }
+  <div class="spell" data-int="60" data-faith="0" data-level="25">
+    <h3>5. Comet Azur</h3>
+    <p>Um feitiço lendário que libera um raio contínuo de energia mágica.</p>
+    <p><strong>INT:</strong> 60 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 25</p>
+    <button class="add-spell">+</button>
+  </div>
 
-    renderSpells();
-  </script></body>
-</html>
+  <div class="spell" data-int="26" data-faith="0" data-level="14">
+    <h3>6. Loretta’s Greatbow</h3>
+    <p>Invoca um grande arco mágico e dispara uma flecha poderosa.</p>
+    <p><strong>INT:</strong> 26 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 14</p>
+    <button class="add-spell">+</button>
+  </div>
+
+  <div class="spell" data-int="14" data-faith="0" data-level="6">
+    <h3>7. Magic Glintblade</h3>
+    <p>Evoca uma lâmina mágica flutuante que ataca após um curto atraso.</p>
+    <p><strong>INT:</strong> 14 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 6</p>
+    <button class="add-spell">+</button>
+  </div>
+
+  <div class="spell" data-int="22" data-faith="0" data-level="10">
+    <h3>8. Glintstone Stars</h3>
+    <p>Lança três estrelas mágicas que perseguem o inimigo.</p>
+    <p><strong>INT:</strong> 22 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 10</p>
+    <button class="add-spell">+</button>
+  </div>
+
+  <div class="spell" data-int="18" data-faith="0" data-level="7">
+    <h3>9. Shattering Crystal</h3>
+    <p>Dispara cristais que explodem em área ao atingir o alvo.</p>
+    <p><strong>INT:</strong> 18 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 7</p>
+    <button class="add-spell">+</button>
+  </div>
+
+  <div class="spell" data-int="40" data-faith="0" data-level="20">
+    <h3>10. Crystal Torrent</h3>
+    <p>Libera uma torrente contínua de cristais perfurantes.</p>
+    <p><strong>INT:</strong> 40 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 20</p>
+    <button class="add-spell">+</button>
+  </div>
+
+  <div class="spell" data-int="17" data-faith="0" data-level="8">
+    <h3>11. Swift Glintstone Shard</h3>
+    <p>Lança um pequeno fragmento mágico mais rapidamente que o normal.</p>
+    <p><strong>INT:</strong> 17 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 8</p>
+    <button class="add-spell">+</button>
+  </div>
+
+  <div class="spell" data-int="30" data-faith="0" data-level="18">
+    <h3>12. Founding Rain of Stars</h3>
+    <p>Cria uma chuva de estrelas mágicas de longa duração.</p>
+    <p><strong>INT:</strong> 30 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 18</p>
+    <button class="add-spell">+</button>
+  </div>
+
+  <div class="spell" data-int="15" data-faith="0" data-level="4">
+    <h3>13. Starlight</h3>
+    <p>Invoca uma pequena estrela de luz para iluminar os arredores.</p>
+    <p><strong>INT:</strong> 15 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 4</p>
+    <button class="add-spell">+</button>
+  </div>
+
+  <div class="spell" data-int="19" data-faith="0" data-level="9">
+    <h3>14. Carian Slicer</h3>
+    <p>Evoca uma lâmina mágica que corta os inimigos a curta distância.</p>
+    <p><strong>INT:</strong> 19 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 9</p>
+    <button class="add-spell">+</button>
+  </div>
+
+  <div class="spell" data-int="23" data-faith="0" data-level="11">
+    <h3>15. Carian Piercer</h3>
+    <p>Invoca uma lança mágica que perfura em linha reta.</p>
+    <p><strong>INT:</strong> 23 | <strong>FÉ:</strong> 0 | <strong>Nível:</strong> 11</p>
+    <button class="add-spell">+</button>
+  </div>
+</div>
