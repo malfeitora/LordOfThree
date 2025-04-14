@@ -1,66 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lord of Tree - Slots</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #333;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .content {
-            text-align: center;
-        }
-        h1 {
-            font-size: 3rem;
-        }
-        .slots-container {
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slots - Lord of Tree</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <div class="content">
-        <h1>Slots de Magia</h1>
-        <p>Arraste para a direita para voltar ao Index</p>
+  <div>
+    <h1>Slots de Magia</h1>
+    <p>Deslize para a direita para voltar</p>
+  </div>
 
-        <div class="slots-container">
-            <p>Slots de Magia: 6</p>
-            <!-- Aqui você pode adicionar seus slots ou elementos adicionais -->
-        </div>
-    </div>
+  <script>
+    let startX = 0;
 
-    <script>
-        let startX = 0;
+    document.addEventListener("touchstart", function(e) {
+      startX = e.touches[0].clientX;
+    });
 
-        document.addEventListener('touchstart', function (e) {
-            startX = e.touches[0].clientX;
-        });
+    document.addEventListener("touchend", function(e) {
+      const endX = e.changedTouches[0].clientX;
+      const diffX = startX - endX;
 
-        document.addEventListener('touchend', function (e) {
-            const endX = e.changedTouches[0].clientX;
-            const diffX = startX - endX;
-
-            if (diffX > 80) {
-                // arrastou para a esquerda
-                if (window.location.href.includes('index.html')) {
-                    window.location.href = 'slots.html';
-                }
-            } else if (diffX < -80) {
-                // arrastou para a direita
-                if (window.location.href.includes('slots.html')) {
-                    window.location.href = 'index.html';
-                }
-            }
-        });
-    </script>
+      if (diffX < -80) {
+        // Swipe para a direita
+        window.location.assign("index.html");
+      }
+    });
+  </script>
 </body>
 </html>
