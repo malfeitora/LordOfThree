@@ -1,119 +1,126 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>SpellTree</title>
+  <title>Árvore de Habilidades</title>
   <style>
     body {
-      background-color: #1a1a1a;
-      color: #e0d8c3;
-      font-family: 'Georgia', serif;
       margin: 0;
-      padding: 20px;
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWkbAM130_7CvsqZdfB8h7bsP89mtkCweHAW7q4MlQoM8BEUlp6J0jjCs&s=10') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Garamond', serif;
     }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5em;
-      margin-bottom: 40px;
-      color: #f0e6d2;
-    }
-
-    .spell {
+    .tree-container {
+      position: relative;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      background-color: #2c2c2c;
-      border: 1px solid #555;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      padding: 15px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      padding: 50px 0;
     }
-
-    .spell img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      margin-right: 20px;
+    .row {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      gap: 30px;
+      position: relative;
+    }
+    .icon {
+      width: 64px;
+      height: 64px;
+      background-color: #222;
+      border: 3px solid #aaa;
       border-radius: 10px;
-      border: 2px solid #666;
-      background-color: #111;
+      background-size: cover;
+      background-position: center;
     }
-
-    .spell p {
-      margin: 0;
-      font-size: 1.1em;
-      line-height: 1.4em;
-    }
-
-    .spell strong {
-      font-size: 1.3em;
-      color: #f5deb3;
+    svg.lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
     }
   </style>
 </head>
 <body>
-  <h1>SpellTree</h1>
+  <div class="tree-container" id="tree">
+    <svg class="lines" id="lines"></svg>
 
-  <div class="spell">
-    <img src="ambush_shard_sorcery_elden_ring_wiki_guide_200px.png" alt="Ambush Shard">
-    <p><strong>Ambush Shard</strong><br>
-    Lança uma lâmina mágica a partir das sombras, surgindo atrás do inimigo. Ideal para combates furtivos. Requer 23 INT.</p>
+    <div class="row" id="row1">
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/5/54/Elden_Ring_Screenshot_07.jpg');"></div>
+    </div>
+    <div class="row" id="row2">
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/4/43/ER_Godrick_the_Grafted.jpg');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/f/f5/Queen_Rennala.webp');"></div>
+    </div>
+    <div class="row" id="row3">
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/5/51/Morgott.jpg');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/f/f9/ER_Godfrey%2C_First_Elden_Lord.png');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/f/ff/ER_Maliketh%2C_the_Black_Blade.png');"></div>
+    </div>
+    <div class="row" id="row4">
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/3/32/ER_General_Radahn.jpg');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/4/45/Messmer%2C_the_Impaler.jpg');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/3/3c/ER_Lichdragon_Fortissax.png');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/a/a6/ER_Boss_Bayle_the_Dread.png');"></div>
+    </div>
+    <div class="row" id="row5">
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/9/93/ER_Astel%2C_Naturalborn_of_the_Void.png');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/2/23/Putrescent_Knight.jpg');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/e/e3/ER_Regal_Ancestor_Spirit.png');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/4/41/ER_Boss_Midra.png');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/1/10/ER_Boss_Metyr%2C_Mother_of_Fingers.png');"></div>
+    </div>
+    <div class="row" id="row6">
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/0/07/ER_Placidusax_Boss.png');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/8/84/ER_Fire_Giant_Phase_2.png');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/0/04/Rellana%2C_Twin_Moon_Knight.png');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/a/ad/ER_Boss_Romina_Saint_of_the_Bud.png');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/7/74/ER_Boss_Commander_Gaius.png');"></div>
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/1/1d/ER_Icon_Remembrance_of_the_Shadow_Sunflower.png');"></div>
+    </div>
+    <div class="row" id="row7">
+      <div class="icon" style="background-image: url('https://static.wikia.nocookie.net/eldenring/images/7/79/Miquella_Appearance_Profile.jpg');"></div>
+    </div>
   </div>
 
-  <div class="spell">
-    <img src="ancient_dragons_lightning_spear_incantation_elden_ring_wiki_guide_200px.png" alt="Ancient Dragons' Lightning Spear">
-    <p><strong>Ancient Dragons' Lightning Spear</strong><br>
-    Invoca um raio vermelho ancestral para atingir inimigos com força colossal. Requer 32 FÉ.</p>
-  </div>
+  <script>
+    function connectIcons() {
+      const svg = document.getElementById('lines');
+      svg.innerHTML = '';
 
-  <div class="spell">
-    <img src="ancient_dragons_lightning_strike_incantation_elden_ring_wiki_guide_200px.png" alt="Ancient Dragons' Lightning Strike">
-    <p><strong>Ancient Dragons' Lightning Strike</strong><br>
-    Desencadeia vários raios em área, evocando o poder dos dragões ancestrais. Requer 36 FÉ.</p>
-  </div>
+      const rows = document.querySelectorAll('.row');
+      for (let i = 0; i < rows.length - 1; i++) {
+        const currentRow = rows[i].querySelectorAll('.icon');
+        const nextRow = rows[i + 1].querySelectorAll('.icon');
 
-  <div class="spell">
-    <img src="aspects_of_the_crucible_tail_incantation_elden_ring_wiki_guide_200px.png" alt="Aspects of the Crucible: Tail">
-    <p><strong>Aspects of the Crucible: Tail</strong><br>
-    Manifesta uma cauda etérea que chicoteia os inimigos em área. Requer 27 FÉ.</p>
-  </div>
+        currentRow.forEach((iconA) => {
+          nextRow.forEach((iconB) => {
+            const rectA = iconA.getBoundingClientRect();
+            const rectB = iconB.getBoundingClientRect();
 
-  <div class="spell">
-    <img src="beast_claw_incantation_elden_ring_wiki_guide_200px.png" alt="Beast Claw">
-    <p><strong>Beast Claw</strong><br>
-    Cria garras bestiais que emergem do chão em linha reta. Feitiço de ataque de área. Requer 8 FÉ.</p>
-  </div>
+            const startX = rectA.left + rectA.width / 2 + window.scrollX;
+            const startY = rectA.top + rectA.height / 2 + window.scrollY;
+            const endX = rectB.left + rectB.width / 2 + window.scrollX;
+            const endY = rectB.top + rectB.height / 2 + window.scrollY;
 
-  <div class="spell">
-    <img src="bestial_constitution_incantation_elden_ring_wiki_guide_200px.png" alt="Bestial Constitution">
-    <p><strong>Bestial Constitution</strong><br>
-    Remove efeitos de congelamento e aumenta resistência ao frio. Requer 9 FÉ.</p>
-  </div>
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', startX);
+            line.setAttribute('y1', startY);
+            line.setAttribute('x2', endX);
+            line.setAttribute('y2', endY);
+            line.setAttribute('stroke', '#c7b279');
+            line.setAttribute('stroke-width', '2');
+            svg.appendChild(line);
+          });
+        });
+      }
+    }
 
-  <div class="spell">
-    <img src="bestial_sling_incantation_elden_ring_wiki_guide_200px.png" alt="Bestial Sling">
-    <p><strong>Bestial Sling</strong><br>
-    Lança fragmentos de pedra em forma de estilhaços de forma rápida. Requer 10 FÉ.</p>
-  </div>
-
-  <div class="spell">
-    <img src="black_flame_blade_incantation_elden_ring_wiki_guide_200px.png" alt="Black Flame Blade">
-    <p><strong>Black Flame Blade</strong><br>
-    Envolve a arma com chamas negras por um curto período, causando dano contínuo. Requer 17 FÉ.</p>
-  </div>
-
-  <div class="spell">
-    <img src="black_flame_incantation_elden_ring_wiki_guide_200px.png" alt="Black Flame">
-    <p><strong>Black Flame</strong><br>
-    Lança uma esfera de chamas negras que explode ao contato, causando dano contínuo. Requer 20 FÉ.</p>
-  </div>
-
-  <div class="spell">
-    <img src="blessing_of_the_erdtree_incantation_elden_ring_wiki_guide_200px.png" alt="Blessing of the Erdtree">
-    <p><strong>Blessing of the Erdtree</strong><br>
-    Concede regeneração contínua de vida a você e aliados próximos. Uma das mais poderosas bênçãos. Requer 38 FÉ.</p>
-  </div>
-
+    window.addEventListener('load', connectIcons);
+    window.addEventListener('resize', connectIcons);
+  </script>
 </body>
 </html>
